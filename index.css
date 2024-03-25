@@ -39,7 +39,9 @@ h1 {
 }
 
 div {
-    border: solid #221f24;;
+    border: solid #221f24;
+    margin: 12px;
     background: #6A5ACD; /* Purple background for playlists */
-    border-radius: 30%;
+    border-radius: 10%;
+    font-size: 12px;
 }
