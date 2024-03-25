@@ -19,14 +19,16 @@ const songs = [
     songs.unshift(`{title: 'Heaven', artist: 'Niall Horan', genre: 'Pop'}`);
     songs.push({title: "fire", artist: "BTS", genre: "KPop"});
     songs.unshift({title: "Runaway baby", artist: "Bruno Mars", genre: "Rock"});
-
+    songs.push({title: 'Venom', artist: 'Straykids', genre: 'KPop'}),
+    songs.unshift({title: 'Dionysus', artist: 'BTS', genre: 'KPop'}),
+    songs.push({title: 'Pink venom', artist: 'Blackpink', genre: 'KPop'})
 // Object containing each Guardian's preferred genre
 const guardians = {
     "Star-Lord": "Rock",
     "Gamora": "Pop",
     "Drax": "Rock",
     "Rocket": "R&B",
-    "Groot": "Pop",
+    "Groot": "KPop",
 };
 
 function generatePlaylist(guardians, songs) {
@@ -79,7 +81,7 @@ playlists1.forEach(playlist => {
     playlist.playlist.forEach(song => {
         // Create a list item element for the song
         const listItem = document.createElement("li");
-        listItem.textContent = `${song.artist}`;
+        listItem.textContent = `${song.artist} `;
         // Create an anchor element for the song
         const anchor = document.createElement("a");
         
