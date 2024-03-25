@@ -1,16 +1,16 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #221f24; /* Dark purple background */
-    color: #fff;
+    color: #FFD700;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    color: #FFD700; /* Gold color for headings */
+    color: #fff; /* Gold color for headings */
     font-family: 'Pacifico', cursive; /* Fun font for headings */
-    font-size: 36px; /* Larger font size */
+    font-size: 25px; /* Larger font size */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for headings */
 }
 
@@ -40,8 +40,10 @@ h1 {
 
 div {
     border: solid #221f24;
-    margin: 12px;
+    margin: 18px;
     background: #6A5ACD; /* Purple background for playlists */
     border-radius: 10%;
     font-size: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for playlists */
 }
