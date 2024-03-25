@@ -69,18 +69,16 @@ playlistsContainer.innerHTML = '';
 // Iterate over each playlist
 playlists1.forEach(playlist => {
     // Create a heading element for the Guardian's playlist
-    const divEL = document.createElement("div")
-    divEL.textContent = `Playlist for ${playlist.guardian}:`;
     const heading = document.createElement("h1");
     heading.textContent = `Playlist for ${playlist.guardian}:`;
 
     // Create an unordered list element for the playlist songs
-    const playlistList = document.createElement("ul");
+    const playlistList = document.createElement("p");
 
     // Iterate over each song in the playlist
     playlist.playlist.forEach(song => {
         // Create a list item element for the song
-        const listItem = document.createElement("li");
+        const listItem = document.createElement("p");
         listItem.textContent = `${song.artist} `;
         // Create an anchor element for the song
         const anchor = document.createElement("a");
