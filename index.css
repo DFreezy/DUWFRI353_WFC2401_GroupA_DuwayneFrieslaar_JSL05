@@ -37,3 +37,13 @@ h1 {
     text-decoration: none; /* Remove underline on hover */
     color: #00FF00; /* Green color on hover */
 }
+
+#star-lord-playlist {
+    background: green;
+}
+
+br {
+    color: black;
+    height: 3px;
+}
+

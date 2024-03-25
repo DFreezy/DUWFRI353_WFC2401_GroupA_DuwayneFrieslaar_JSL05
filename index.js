@@ -11,17 +11,17 @@ const songs = [
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
     { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
-    { title: "Clouds of heaven", artist: "Duwayne Frieslaar", genre: "R&B" }
     // Feel free to add even more songs
 ];
     songs.push({title: 'What the hell', artist: 'Avril Lavigne', genre: 'Pop'});
     songs.push({title: 'Coma', artist: 'Nick Carter', genre: 'Electro Pop'});
-    songs.unshift(`{title: 'Heaven', artist: 'Niall Horan', genre: 'Pop'}`);
+    songs.unshift({title: 'Heaven', artist: 'Niall Horan', genre: 'Pop'});
     songs.push({title: "fire", artist: "BTS", genre: "KPop"});
     songs.unshift({title: "Runaway baby", artist: "Bruno Mars", genre: "Rock"});
     songs.push({title: 'Venom', artist: 'Straykids', genre: 'KPop'}),
     songs.unshift({title: 'Dionysus', artist: 'BTS', genre: 'KPop'}),
-    songs.push({title: 'Pink venom', artist: 'Blackpink', genre: 'KPop'})
+    songs.push({title: 'Pink venom', artist: 'Blackpink', genre: 'KPop'});
+    songs.push({ title: "Clouds of heaven", artist: "Duwayne Frieslaar", genre: "R&B" })
 // Object containing each Guardian's preferred genre
 const guardians = {
     "Star-Lord": "Rock",
@@ -30,6 +30,7 @@ const guardians = {
     "Rocket": "R&B",
     "Groot": "KPop",
 };
+
 
 function generatePlaylist(guardians, songs) {
     // Use map() to create playlists for each guardian
@@ -71,10 +72,11 @@ playlists1.forEach(playlist => {
     // Create a heading element for the Guardian's playlist
     const heading = document.createElement("h1");
     heading.textContent = `Playlist for ${playlist.guardian}:`;
+     const id = `${playlist.guardian.toLowerCase()}-playlist`;
+    heading.setAttribute("id", id);
 
     // Create an unordered list element for the playlist songs
     const playlistList = document.createElement("p");
-
     // Iterate over each song in the playlist
     playlist.playlist.forEach(song => {
         // Create a list item element for the song
@@ -82,6 +84,8 @@ playlists1.forEach(playlist => {
         listItem.textContent = `${song.artist} `;
         // Create an anchor element for the song
         const anchor = document.createElement("a");
+        const line = document.createElement("hr");
+
         
         // Set the text content of the anchor to the song title and artist
         anchor.textContent = `${song.title}`
@@ -94,6 +98,7 @@ playlists1.forEach(playlist => {
         
         // Append the list item to the playlist list
         playlistList.appendChild(listItem);
+        playlistList.appendChild(line);
     });
 
     // Append the heading and playlist list to the playlists container
