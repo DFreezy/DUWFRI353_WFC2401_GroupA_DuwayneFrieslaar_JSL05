@@ -58,8 +58,8 @@ playlists.forEach(playlist => {
 });
 
 // Select the playlists container
+// Select the playlists container
 const playlistsContainer = document.getElementById("playlists");
-
 
 // Call generatePlaylist and display the playlists for each Guardian
 const playlists1 = generatePlaylist(guardians, songs);
@@ -69,39 +69,49 @@ playlistsContainer.innerHTML = '';
 
 // Iterate over each playlist
 playlists1.forEach(playlist => {
+    // Create a div element for the Guardian's playlist
+    const guardianDiv = document.createElement("div");
+    // Set id attribute for the div
+    guardianDiv.setAttribute("id", `${playlist.guardian.toLowerCase()}-playlist`);
+    
     // Create a heading element for the Guardian's playlist
     const heading = document.createElement("h1");
     heading.textContent = `Playlist for ${playlist.guardian}:`;
-     const id = `${playlist.guardian.toLowerCase()}-playlist`;
-    heading.setAttribute("id", id);
 
     // Create an unordered list element for the playlist songs
-    const playlistList = document.createElement("p");
+    const playlistList = document.createElement("ul");
+
     // Iterate over each song in the playlist
     playlist.playlist.forEach(song => {
         // Create a list item element for the song
-        const listItem = document.createElement("p");
-        listItem.textContent = `${song.artist} `;
-        // Create an anchor element for the song
-        const anchor = document.createElement("a");
-        const line = document.createElement("hr");
-
-        
-        // Set the text content of the anchor to the song title and artist
-        anchor.textContent = `${song.title}`
-        
-        // Set the href attribute of the anchor to the desired URL
-        anchor.href = "https://example.com"; // Replace "https://example.com" with the desired URL
-        
-        // Append the anchor to the list item
-        listItem.appendChild(anchor);
+        const listItem = document.createElement("li");
+        listItem.textContent = `${song.artist}`;
+        const songLink = document.createElement("a");
+    songLink.textContent = `${song.title}`
+    songLink.href = "your_song_url_here"; // Replace "your_song_url_here" with the actual URL of the song
+    
+    // Append the anchor to the list item
         
         // Append the list item to the playlist list
         playlistList.appendChild(listItem);
-        playlistList.appendChild(line);
+        listItem.appendChild(songLink)
     });
 
-    // Append the heading and playlist list to the playlists container
-    playlistsContainer.appendChild(heading);
-    playlistsContainer.appendChild(playlistList);
+    // Append the heading and playlist list to the guardianDiv
+    guardianDiv.appendChild(heading);
+    guardianDiv.appendChild(playlistList);
+
+    // Append the guardianDiv to the playlists container
+    playlistsContainer.appendChild(guardianDiv);
 });
+
+// Apply CSS to display the playlists side by side
+// Apply CSS to the playlists container to adjust layout
+playlistsContainer.style.display = "flex";
+playlistsContainer.style.flexWrap = "wrap";
+playlistsContainer.style.margin = "20px";
+playlistsContainer.style.justifyContent = "space-between"; // Align playlists at the beginning and end of the container
+
+// Apply CSS to the guardianDiv to adjust layout
+guardianDiv.style.flexBasis = "45%"; // Set the width of each playlist div
+guardianDiv.style.marginBottom = "20px"; // Add margin between playlist divs
