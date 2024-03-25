@@ -84,8 +84,8 @@ playlists1.forEach(playlist => {
     // Iterate over each song in the playlist
     playlist.playlist.forEach(song => {
         // Create a list item element for the song
-        const listItem = document.createElement("li");
-        listItem.textContent = `${song.artist}`;
+        const listItem = document.createElement("p");
+        listItem.textContent = `${song.artist}  `;
         const songLink = document.createElement("a");
     songLink.textContent = `${song.title}`
     songLink.href = "your_song_url_here"; // Replace "your_song_url_here" with the actual URL of the song
