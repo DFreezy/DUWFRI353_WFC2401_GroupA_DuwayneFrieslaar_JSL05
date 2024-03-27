@@ -17,11 +17,11 @@ const songs = [
     songs.push({title: 'Coma', artist: 'Nick Carter', genre: 'Electro Pop'});
     songs.unshift({title: 'Heaven', artist: 'Niall Horan', genre: 'Pop'});
     songs.push({title: "fire", artist: "BTS", genre: "KPop"});
-    songs.unshift({title: "Runaway baby", artist: "Bruno Mars", genre: "Rock"});
+    songs.unshift({title: "Runaway baby", artist: "Bruno Mars", genre: "Rock"}); //Added songs to start of array
     songs.push({title: 'Venom', artist: 'Straykids', genre: 'KPop'}),
     songs.unshift({title: 'Dionysus', artist: 'BTS', genre: 'KPop'}),
-    songs.push({title: 'Pink venom', artist: 'Blackpink', genre: 'KPop'});
-    songs.push({ title: "Clouds of heaven", artist: "Duwayne Frieslaar", genre: "R&B" })
+    songs.push({title: 'Pink venom', artist: 'Blackpink', genre: 'KPop'}); //
+    songs.push({ title: "Clouds of heaven", artist: "Duwayne Frieslaar", genre: "R&B" })//Added songs to end array
 // Object containing each Guardian's preferred genre
 const guardians = {
     "Star-Lord": "Rock",
@@ -35,7 +35,11 @@ const guardians = {
 function generatePlaylist(guardians, songs) {
     // Use map() to create playlists for each guardian
     const playlists = Object.keys(guardians).map(guardian => {
+    /* retrieves an array containing the keys (guardian names) of the guardians object.
+    .map() is called on this array, which iterates over each guardian name.
+     For each guardian name, the arrow function (guardian => {...}) is executed.*/
         const genre = guardians[guardian];
+    //filtering through the array of songs to apply to each guardian
         const guardianSongs = songs.filter(song => song.genre === genre);
         const playlist = guardianSongs.map(song => ({
             title: song.title,
@@ -51,6 +55,7 @@ function generatePlaylist(guardians, songs) {
 
 const playlists = generatePlaylist(guardians, songs);
 playlists.forEach(playlist => {
+    //Apply to each guardian and songs
     console.log(`Playlist for ${playlist.guardian}:`);
     playlist.playlist.forEach(song => {
         console.log(`${song.title} - ${song.artist}`);
